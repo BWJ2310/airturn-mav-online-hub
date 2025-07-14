@@ -127,21 +127,8 @@ All colors MUST be HSL.
     box-shadow: 0 10px 30px -5px hsla(8, 12%, 8%, 0.5);
   }
   
-  .animate-glow-pulse {
-    animation: glow-pulse 2s ease-in-out infinite alternate;
-  }
-  
   .animate-fade-in {
     animation: fade-in 0.8s ease-out;
-  }
-}
-
-@keyframes glow-pulse {
-  from {
-    box-shadow: 0 0 5px hsla(200, 85%, 55%, 0.5);
-  }
-  to {
-    box-shadow: 0 0 20px hsla(200, 85%, 55%, 0.8);
   }
 }
 

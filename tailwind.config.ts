@@ -136,13 +136,13 @@ export default {
 				},
 				'glow-pulse': {
 					'0%': {
-						box-shadow: '0 0 20px hsl(var(--primary) / 0.3)'
+						boxShadow: '0 0 20px rgba(96, 165, 250, 0.3)'
 					},
 					'50%': {
-						box-shadow: '0 0 40px hsl(var(--primary) / 0.5)'
+						boxShadow: '0 0 40px rgba(96, 165, 250, 0.5)'
 					},
 					'100%': {
-						box-shadow: '0 0 20px hsl(var(--primary) / 0.3)'
+						boxShadow: '0 0 20px rgba(96, 165, 250, 0.3)'
 					}
 				}
 			}
