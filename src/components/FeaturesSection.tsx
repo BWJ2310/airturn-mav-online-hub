@@ -1,34 +1,30 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
-import deviceIcon from "@/assets/device-icon.png";
-import waterproofIcon from "@/assets/waterproof-icon.png";
-import chargingIcon from "@/assets/charging-icon.png";
-import appControlIcon from "@/assets/app-control-icon.png";
 
 const features = [
   {
     title: "Wearable Design",
     description: "Adjustable strap fits over outerwear",
-    icon: deviceIcon,
+    image: "/lovable-uploads/d73ec12b-9181-4ed9-a275-db1ab7811c08.png",
     details: "Designed for comfort and durability, the MAV's adjustable strap system adapts to any adventure gear, ensuring secure attachment without limiting mobility."
   },
   {
     title: "Waterproof Enclosure",
     description: "Protection from rain, snow, or sweat",
-    icon: waterproofIcon,
+    image: "/lovable-uploads/0dbfd9bb-d525-41b0-beb2-b5f0dde70033.png",
     details: "Engineered with advanced sealing technology, the MAV withstands the harshest conditions while maintaining full functionality."
   },
   {
     title: "Magnetic Charging",
     description: "Convenience keeping your device sealed from the elements",
-    icon: chargingIcon,
+    image: "/lovable-uploads/a379ad39-fea3-46b5-a91b-dad051e768b5.png",
     details: "Innovative magnetic charging system eliminates the need for ports, maintaining complete weather resistance while providing effortless power management."
   },
   {
     title: "Endless App Control",
     description: "Seamless switching between your favorite media apps",
-    icon: appControlIcon,
+    image: "/lovable-uploads/cb138d97-a5af-4ddc-a4ed-5a56afb34ad2.png",
     details: "Compatible with hundreds of apps, from music streaming to navigation, giving you complete control over your digital experience."
   }
 ];
@@ -58,20 +54,19 @@ export const FeaturesSection = () => {
               className="group bg-gradient-card border-primary/20 shadow-card hover:shadow-glow transition-all duration-300 hover:transform hover:scale-[1.02] overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardContent className="p-8">
-                <div className="flex items-start gap-6">
-                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-feature rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <img 
-                      src={feature.icon} 
-                      alt={feature.title}
-                      className="w-8 h-8 object-contain"
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-primary font-medium mb-3">{feature.description}</p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{feature.details}</p>
-                  </div>
+              <CardContent className="p-0">
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={feature.image} 
+                    alt={feature.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                </div>
+                <div className="p-8">
+                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-primary font-medium mb-3">{feature.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{feature.details}</p>
                 </div>
               </CardContent>
             </Card>
