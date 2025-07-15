@@ -27,7 +27,7 @@ export const HeroSection = () => {
               CONTROL
             </span>
             <br />
-            <span className="text-foreground">
+            <span className="text-primary">
               UNLEASHED
             </span>
           </h1>

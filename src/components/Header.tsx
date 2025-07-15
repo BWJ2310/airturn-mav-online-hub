@@ -16,7 +16,7 @@ export const Header = () => {
               alt="AirTurn Logo" 
               className="w-8 h-8 object-contain"
             />
-            <span className="text-xl font-bold">AirTurn MAV</span>
+            <span className="text-xl font-bold text-primary">AirTurn MAV</span>
           </div>
           
           {/* Desktop Navigation */}
