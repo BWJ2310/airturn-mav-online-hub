@@ -84,7 +84,7 @@ export const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span className="text-muted-foreground">Boulder, CO</span>
+                <span className="text-muted-foreground">1668 Valtec Lane, Unit G, Boulder, Colorado, USA 80301</span>
               </div>
             </div>
           </div>
