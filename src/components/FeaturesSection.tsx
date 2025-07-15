@@ -64,7 +64,7 @@ export const FeaturesSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
                 </div>
                 <div className="p-8">
-                  <h3 className="text-xl font-semibold mb-2 text-primary">{feature.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                   <p className="text-primary font-medium mb-3">{feature.description}</p>
                   <p className="text-muted-foreground text-sm leading-relaxed">{feature.details}</p>
                 </div>
@@ -75,7 +75,7 @@ export const FeaturesSection = () => {
         
         {/* CTA Section */}
         <div className="text-center bg-gradient-card rounded-2xl p-12 border border-primary/20 shadow-card">
-          <h3 className="text-3xl font-bold mb-4 text-primary">Ready to Unleash Control?</h3>
+          <h3 className="text-3xl font-bold mb-4">Ready to Unleash Control?</h3>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join thousands of adventurers who've already discovered the freedom of seamless app control in any environment.
           </p>
