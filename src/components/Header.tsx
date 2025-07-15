@@ -10,10 +10,12 @@ export const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-hero rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">AT</span>
-            </div>
+          <div className="flex items-center gap-3">
+            <img 
+              src="/lovable-uploads/992811d5-e5b1-41c0-b4b3-44ff5d28f77b.png" 
+              alt="AirTurn Logo" 
+              className="w-8 h-8 object-contain"
+            />
             <span className="text-xl font-bold">AirTurn MAV</span>
           </div>
           
