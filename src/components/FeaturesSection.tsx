@@ -24,7 +24,7 @@ const features = [
   {
     title: "Endless App Control",
     description: "Seamless switching between your favorite media apps",
-    image: "/lovable-uploads/cb138d97-a5af-4ddc-a4ed-5a56afb34ad2.png",
+    image: "/lovable-uploads/e629d416-b699-478c-805d-8163043900cf.png",
     details: "Compatible with hundreds of apps, from music streaming to navigation, giving you complete control over your digital experience."
   }
 ];
