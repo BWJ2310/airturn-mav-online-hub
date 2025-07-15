@@ -6,7 +6,7 @@ const features = [
   {
     title: "Wearable Design",
     description: "Adjustable strap fits over outerwear",
-    image: "/lovable-uploads/d73ec12b-9181-4ed9-a275-db1ab7811c08.png",
+    image: "/lovable-uploads/143eaf88-3a32-405a-bbbd-433bff7598eb.png",
     details: "Designed for comfort and durability, the MAV's adjustable strap system adapts to any adventure gear, ensuring secure attachment without limiting mobility."
   },
   {
