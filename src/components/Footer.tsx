@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
-
 export const Footer = () => {
-  return (
-    <footer className="bg-gradient-to-b from-background to-muted/20 border-t border-primary/20">
+  return <footer className="bg-gradient-to-b from-background to-muted/20 border-t border-primary/20">
       <div className="container mx-auto px-4 py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -100,12 +98,8 @@ export const Footer = () => {
               Get the latest updates on MAV features, firmware updates, and adventure stories from our community.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input 
-                type="email" 
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-background border border-primary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-              />
-              <Button variant="hero" size="lg">
+              <input type="email" placeholder="Enter your email" className="flex-1 px-4 py-3 bg-background border border-primary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50" />
+              <Button variant="hero" size="lg" className="bg-slate-50">
                 Subscribe
               </Button>
             </div>
@@ -130,6 +124,5 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
