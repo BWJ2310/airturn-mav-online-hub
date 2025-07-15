@@ -1,14 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
-
 export const HeroSection = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png)` }}
-      >
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: `url(/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png)`
+    }}>
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-background/20" />
       </div>
       
@@ -39,16 +36,14 @@ export const HeroSection = () => {
           
           {/* Feature highlights */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {["Waterproof", "Magnetic Charging", "Endless App Control", "Adventure Ready"].map((feature) => (
-              <div key={feature} className="bg-gradient-feature backdrop-blur-sm rounded-lg px-4 py-2 border border-primary/10">
+            {["Waterproof", "Magnetic Charging", "Endless App Control", "Adventure Ready"].map(feature => <div key={feature} className="bg-gradient-feature backdrop-blur-sm rounded-lg px-4 py-2 border border-primary/10">
                 <span className="text-sm font-medium">{feature}</span>
-              </div>
-            ))}
+              </div>)}
           </div>
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl" className="group">
+            <Button variant="hero" size="xl" className="group text-sky-500">
               Get Your MAV
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
@@ -62,6 +57,5 @@ export const HeroSection = () => {
       
       {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
-    </section>
-  );
+    </section>;
 };

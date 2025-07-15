@@ -1,43 +1,35 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
-
-const features = [
-  {
-    title: "Wearable Design",
-    description: "Adjustable strap fits over outerwear",
-    image: "/lovable-uploads/143eaf88-3a32-405a-bbbd-433bff7598eb.png",
-    details: "Designed for comfort and durability, the MAV's adjustable strap system adapts to any adventure gear, ensuring secure attachment without limiting mobility."
-  },
-  {
-    title: "Waterproof Enclosure",
-    description: "Protection from rain, snow, or sweat",
-    image: "/lovable-uploads/0dbfd9bb-d525-41b0-beb2-b5f0dde70033.png",
-    details: "Engineered with advanced sealing technology, the MAV withstands the harshest conditions while maintaining full functionality."
-  },
-  {
-    title: "Magnetic Charging",
-    description: "Convenience keeping your device sealed from the elements",
-    image: "/lovable-uploads/a379ad39-fea3-46b5-a91b-dad051e768b5.png",
-    details: "Innovative magnetic charging system eliminates the need for ports, maintaining complete weather resistance while providing effortless power management."
-  },
-  {
-    title: "Endless App Control",
-    description: "Seamless switching between your favorite media apps",
-    image: "/lovable-uploads/e629d416-b699-478c-805d-8163043900cf.png",
-    details: "Compatible with hundreds of apps, from music streaming to navigation, giving you complete control over your digital experience."
-  }
-];
-
+const features = [{
+  title: "Wearable Design",
+  description: "Adjustable strap fits over outerwear",
+  image: "/lovable-uploads/143eaf88-3a32-405a-bbbd-433bff7598eb.png",
+  details: "Designed for comfort and durability, the MAV's adjustable strap system adapts to any adventure gear, ensuring secure attachment without limiting mobility."
+}, {
+  title: "Waterproof Enclosure",
+  description: "Protection from rain, snow, or sweat",
+  image: "/lovable-uploads/0dbfd9bb-d525-41b0-beb2-b5f0dde70033.png",
+  details: "Engineered with advanced sealing technology, the MAV withstands the harshest conditions while maintaining full functionality."
+}, {
+  title: "Magnetic Charging",
+  description: "Convenience keeping your device sealed from the elements",
+  image: "/lovable-uploads/a379ad39-fea3-46b5-a91b-dad051e768b5.png",
+  details: "Innovative magnetic charging system eliminates the need for ports, maintaining complete weather resistance while providing effortless power management."
+}, {
+  title: "Endless App Control",
+  description: "Seamless switching between your favorite media apps",
+  image: "/lovable-uploads/e629d416-b699-478c-805d-8163043900cf.png",
+  details: "Compatible with hundreds of apps, from music streaming to navigation, giving you complete control over your digital experience."
+}];
 export const FeaturesSection = () => {
-  return (
-    <section className="py-24 bg-gradient-to-b from-background to-muted/20">
+  return <section className="py-24 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Built for{" "}
-            <span className="bg-gradient-hero bg-clip-text text-transparent">
+            <span className="bg-gradient-hero bg-clip-text text-sky-500">
               Adventure
             </span>
           </h2>
@@ -48,19 +40,12 @@ export const FeaturesSection = () => {
         
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {features.map((feature, index) => (
-            <Card 
-              key={feature.title}
-              className="group bg-gradient-card border-primary/20 shadow-card hover:shadow-glow transition-all duration-300 hover:transform hover:scale-[1.02] overflow-hidden"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
+          {features.map((feature, index) => <Card key={feature.title} className="group bg-gradient-card border-primary/20 shadow-card hover:shadow-glow transition-all duration-300 hover:transform hover:scale-[1.02] overflow-hidden" style={{
+          animationDelay: `${index * 0.1}s`
+        }}>
               <CardContent className="p-0">
                 <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={feature.image} 
-                    alt={feature.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                  <img src={feature.image} alt={feature.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
                 </div>
                 <div className="p-8">
@@ -69,8 +54,7 @@ export const FeaturesSection = () => {
                   <p className="text-muted-foreground text-sm leading-relaxed">{feature.details}</p>
                 </div>
               </CardContent>
-            </Card>
-          ))}
+            </Card>)}
         </div>
         
         {/* CTA Section */}
@@ -80,7 +64,7 @@ export const FeaturesSection = () => {
             Join thousands of adventurers who've already discovered the freedom of seamless app control in any environment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl" className="group">
+            <Button variant="hero" size="xl" className="group text-sky-500">
               Order Your MAV
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
@@ -90,6 +74,5 @@ export const FeaturesSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
