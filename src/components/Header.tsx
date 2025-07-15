@@ -12,7 +12,7 @@ export const Header = () => {
           {/* Logo */}
           <div className="flex items-center gap-3">
             <img 
-              src="/lovable-uploads/992811d5-e5b1-41c0-b4b3-44ff5d28f77b.png" 
+              src="/lovable-uploads/1cc4e6f9-3928-49d8-bde3-6600dab84be6.png" 
               alt="AirTurn Logo" 
               className="w-8 h-8 object-contain"
             />
