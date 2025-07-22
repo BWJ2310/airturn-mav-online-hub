@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Shield, Smartphone, Battery, Droplets, ArrowRight, Star, Check, Bluetooth, Watch, Volume2 } from "lucide-react";
+import { Shield, Smartphone, Battery, Droplets, ArrowRight, Check, Bluetooth, Watch, Volume2 } from "lucide-react";
 import { useState } from "react";
 
 const ProductDetail = () => {
@@ -80,12 +80,8 @@ const ProductDetail = () => {
                   Wearable, waterproof, and ultra-durable Bluetooth media controller
                 </p>
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="flex text-yellow-500">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-current" />
-                    ))}
-                  </div>
-                  <span className="text-muted-foreground">(127 reviews)</span>
+                  <Badge variant="secondary" className="text-xs">In Stock</Badge>
+                  <span className="text-muted-foreground text-sm">Ready to ship</span>
                 </div>
               </div>
 
