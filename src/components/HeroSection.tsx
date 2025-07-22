@@ -47,7 +47,7 @@ export const HeroSection = () => {
               Get Your MAV
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button variant="feature" size="xl" className="group">
+            <Button variant="feature" size="xl" className="group bg-zinc-950 hover:bg-zinc-800">
               <Play className="mr-2 h-5 w-5" />
               Watch in Action
             </Button>
