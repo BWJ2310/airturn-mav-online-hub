@@ -6,40 +6,61 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Shield, Smartphone, Battery, Droplets, ArrowRight, Check, Bluetooth, Watch, Volume2 } from "lucide-react";
 import { useState } from "react";
-
 const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-
-  const productImages = [
-    "/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png",
-    "/lovable-uploads/143eaf88-3a32-405a-bbbd-433bff7598eb.png",
-    "/lovable-uploads/0dbfd9bb-d525-41b0-beb2-b5f0dde70033.png",
-    "/lovable-uploads/a379ad39-fea3-46b5-a91b-dad051e768b5.png",
-  ];
-
-  const features = [
-    { icon: Watch, title: "Wearable Design", description: "Straps securely to your arm, wrist, gear, or handlebars" },
-    { icon: Droplets, title: "Weatherproof Build", description: "Water, dust, and shock resistant for any adventure" },
-    { icon: Battery, title: "Magnetic Charging", description: "Snap-on USB magnetic cable—easy even when wet" },
-    { icon: Smartphone, title: "App Compatibility", description: "Works with hundreds of apps across iOS and Android" },
-    { icon: Bluetooth, title: "Bluetooth 5 Wireless", description: "Strong connection with over 200 feet of range" },
-    { icon: Volume2, title: "Tactile Control", description: "Five soft buttons with LED backlighting for any condition" },
-  ];
-
-  const specs = [
-    { label: "Connectivity", value: "Bluetooth 5.0" },
-    { label: "Battery Life", value: "200+ hours" },
-    { label: "Charging", value: "Magnetic USB Cable" },
-    { label: "Weather Rating", value: "Waterproof, dustproof, impact-resistant" },
-    { label: "Buttons", value: "5 soft-touch with LED backlighting" },
-    { label: "Range", value: "200+ feet" },
-    { label: "Weight", value: "Just a few ounces" },
-    { label: "Warranty", value: "2-year with registration" },
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const productImages = ["/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png", "/lovable-uploads/143eaf88-3a32-405a-bbbd-433bff7598eb.png", "/lovable-uploads/0dbfd9bb-d525-41b0-beb2-b5f0dde70033.png", "/lovable-uploads/a379ad39-fea3-46b5-a91b-dad051e768b5.png"];
+  const features = [{
+    icon: Watch,
+    title: "Wearable Design",
+    description: "Straps securely to your arm, wrist, gear, or handlebars"
+  }, {
+    icon: Droplets,
+    title: "Weatherproof Build",
+    description: "Water, dust, and shock resistant for any adventure"
+  }, {
+    icon: Battery,
+    title: "Magnetic Charging",
+    description: "Snap-on USB magnetic cable—easy even when wet"
+  }, {
+    icon: Smartphone,
+    title: "App Compatibility",
+    description: "Works with hundreds of apps across iOS and Android"
+  }, {
+    icon: Bluetooth,
+    title: "Bluetooth 5 Wireless",
+    description: "Strong connection with over 200 feet of range"
+  }, {
+    icon: Volume2,
+    title: "Tactile Control",
+    description: "Five soft buttons with LED backlighting for any condition"
+  }];
+  const specs = [{
+    label: "Connectivity",
+    value: "Bluetooth 5.0"
+  }, {
+    label: "Battery Life",
+    value: "200+ hours"
+  }, {
+    label: "Charging",
+    value: "Magnetic USB Cable"
+  }, {
+    label: "Weather Rating",
+    value: "Waterproof, dustproof, impact-resistant"
+  }, {
+    label: "Buttons",
+    value: "5 soft-touch with LED backlighting"
+  }, {
+    label: "Range",
+    value: "200+ feet"
+  }, {
+    label: "Weight",
+    value: "Just a few ounces"
+  }, {
+    label: "Warranty",
+    value: "2-year with registration"
+  }];
+  return <div className="min-h-screen bg-background">
       <Header />
       
       {/* Main Product Section */}
@@ -50,24 +71,12 @@ const ProductDetail = () => {
             {/* Product Images */}
             <div className="space-y-4">
               <div className="aspect-square rounded-lg overflow-hidden bg-muted">
-                <img 
-                  src={productImages[selectedImage]} 
-                  alt="AirTurn MAV" 
-                  className="w-full h-full object-cover"
-                />
+                <img src={productImages[selectedImage]} alt="AirTurn MAV" className="w-full h-full object-cover" />
               </div>
               <div className="grid grid-cols-4 gap-2">
-                {productImages.map((image, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setSelectedImage(index)}
-                    className={`aspect-square rounded-md overflow-hidden border-2 transition-colors ${
-                      selectedImage === index ? "border-primary" : "border-border"
-                    }`}
-                  >
+                {productImages.map((image, index) => <button key={index} onClick={() => setSelectedImage(index)} className={`aspect-square rounded-md overflow-hidden border-2 transition-colors ${selectedImage === index ? "border-primary" : "border-border"}`}>
                     <img src={image} alt={`MAV view ${index + 1}`} className="w-full h-full object-cover" />
-                  </button>
-                ))}
+                  </button>)}
               </div>
             </div>
 
@@ -91,28 +100,22 @@ const ProductDetail = () => {
                 <div className="flex items-center gap-4">
                   <label className="text-sm font-medium">Quantity:</label>
                   <div className="flex items-center border rounded-md">
-                    <button 
-                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="px-3 py-1 hover:bg-muted"
-                    >
+                    <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-3 py-1 hover:bg-muted">
                       -
                     </button>
                     <span className="px-4 py-1 border-x">{quantity}</span>
-                    <button 
-                      onClick={() => setQuantity(quantity + 1)}
-                      className="px-3 py-1 hover:bg-muted"
-                    >
+                    <button onClick={() => setQuantity(quantity + 1)} className="px-3 py-1 hover:bg-muted">
                       +
                     </button>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <Button variant="hero" size="xl" className="w-full">
+                  <Button variant="hero" size="xl" className="w-full text-sky-500">
                     Add to Cart - ${(99.00 * quantity).toFixed(2)}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
-                  <Button variant="outline" size="xl" className="w-full">
+                  <Button variant="outline" size="xl" className="w-full text-base bg-sky-500 hover:bg-sky-400">
                     Buy Now
                   </Button>
                 </div>
@@ -148,15 +151,13 @@ const ProductDetail = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <Card key={index} className="text-center p-6 border-primary/20">
+            {features.map((feature, index) => <Card key={index} className="text-center p-6 border-primary/20">
                 <CardContent className="p-0">
                   <feature.icon className="w-12 h-12 text-primary mx-auto mb-4" />
                   <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
                   <p className="text-muted-foreground text-sm">{feature.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -170,15 +171,13 @@ const ProductDetail = () => {
             <Card className="border-primary/20">
               <CardContent className="p-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {specs.map((spec, index) => (
-                    <div key={index}>
+                  {specs.map((spec, index) => <div key={index}>
                       <div className="flex justify-between items-center py-3">
                         <span className="font-medium">{spec.label}</span>
                         <span className="text-muted-foreground">{spec.value}</span>
                       </div>
                       {index < specs.length - 1 && <Separator />}
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </CardContent>
             </Card>
@@ -213,8 +212,6 @@ const ProductDetail = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default ProductDetail;
