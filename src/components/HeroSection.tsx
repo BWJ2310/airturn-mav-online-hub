@@ -43,7 +43,7 @@ export const HeroSection = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl" className="group text-sky-500">
+            <Button variant="hero" size="xl" className="group text-sky-500 bg-zinc-950 hover:bg-zinc-800">
               Get Your MAV
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
