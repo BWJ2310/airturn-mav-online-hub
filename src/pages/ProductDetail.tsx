@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Shield, Smartphone, Battery, Droplets, ArrowRight, Star, Check } from "lucide-react";
+import { Shield, Smartphone, Battery, Droplets, ArrowRight, Star, Check, Bluetooth, Watch, Volume2 } from "lucide-react";
 import { useState } from "react";
 
 const ProductDetail = () => {
@@ -19,19 +19,23 @@ const ProductDetail = () => {
   ];
 
   const features = [
-    { icon: Shield, title: "Rugged Design", description: "Built to withstand extreme conditions" },
-    { icon: Droplets, title: "100% Waterproof", description: "Sealed from rain, snow, and sweat" },
-    { icon: Battery, title: "Magnetic Charging", description: "No ports needed - stays sealed" },
-    { icon: Smartphone, title: "Universal App Control", description: "Works with hundreds of apps" },
+    { icon: Watch, title: "Wearable Design", description: "Straps securely to your arm, wrist, gear, or handlebars" },
+    { icon: Droplets, title: "Weatherproof Build", description: "Water, dust, and shock resistant for any adventure" },
+    { icon: Battery, title: "Magnetic Charging", description: "Snap-on USB magnetic cable—easy even when wet" },
+    { icon: Smartphone, title: "App Compatibility", description: "Works with hundreds of apps across iOS and Android" },
+    { icon: Bluetooth, title: "Bluetooth 5 Wireless", description: "Strong connection with over 200 feet of range" },
+    { icon: Volume2, title: "Tactile Control", description: "Five soft buttons with LED backlighting for any condition" },
   ];
 
   const specs = [
     { label: "Connectivity", value: "Bluetooth 5.0" },
-    { label: "Battery Life", value: "Up to 20 hours" },
-    { label: "Charging", value: "Magnetic USB-C" },
-    { label: "Water Rating", value: "IPX8 Waterproof" },
-    { label: "Weight", value: "120g (4.2 oz)" },
-    { label: "Dimensions", value: "3.5\" x 2.1\" x 0.8\"" },
+    { label: "Battery Life", value: "200+ hours" },
+    { label: "Charging", value: "Magnetic USB Cable" },
+    { label: "Weather Rating", value: "Waterproof, dustproof, impact-resistant" },
+    { label: "Buttons", value: "5 soft-touch with LED backlighting" },
+    { label: "Range", value: "200+ feet" },
+    { label: "Weight", value: "Just a few ounces" },
+    { label: "Warranty", value: "2-year with registration" },
   ];
 
   return (
@@ -73,7 +77,7 @@ const ProductDetail = () => {
                 <Badge variant="secondary" className="mb-2">New Release</Badge>
                 <h1 className="text-4xl font-bold mb-2 text-primary">AirTurn MAV</h1>
                 <p className="text-xl text-muted-foreground mb-4">
-                  Wearable App Controller for Extreme Adventures
+                  Wearable, waterproof, and ultra-durable Bluetooth media controller
                 </p>
                 <div className="flex items-center gap-2 mb-4">
                   <div className="flex text-yellow-500">
@@ -85,7 +89,7 @@ const ProductDetail = () => {
                 </div>
               </div>
 
-              <div className="text-3xl font-bold text-primary">$149.99</div>
+              <div className="text-3xl font-bold text-primary">$99.00</div>
 
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
@@ -109,7 +113,7 @@ const ProductDetail = () => {
 
                 <div className="space-y-3">
                   <Button variant="hero" size="xl" className="w-full">
-                    Add to Cart - ${(149.99 * quantity).toFixed(2)}
+                    Add to Cart - ${(99.00 * quantity).toFixed(2)}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                   <Button variant="outline" size="xl" className="w-full">
@@ -147,7 +151,7 @@ const ProductDetail = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
               <Card key={index} className="text-center p-6 border-primary/20">
                 <CardContent className="p-0">
@@ -169,7 +173,7 @@ const ProductDetail = () => {
             
             <Card className="border-primary/20">
               <CardContent className="p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {specs.map((spec, index) => (
                     <div key={index}>
                       <div className="flex justify-between items-center py-3">
@@ -193,18 +197,19 @@ const ProductDetail = () => {
             <h2 className="text-3xl font-bold text-center mb-8 text-primary">Product Description</h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                The AirTurn MAV is the ultimate wearable app controller designed for adventurers who refuse to compromise. 
-                Whether you're scaling mountains, kayaking rapids, or cycling through challenging terrain, the MAV keeps 
-                your favorite apps at your fingertips while your devices stay safely protected.
+                The AirTurn MAV is a rugged, Bluetooth-enabled media controller designed for movement. With five tactile buttons 
+                and a compact, strap-on design, it offers direct control over your apps—whether you're hiking, biking, paddling, 
+                or snowboarding. No need to dig out your phone; just press a button to stay in control.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                With its innovative magnetic charging system, the MAV maintains complete waterproof integrity without 
-                compromising on convenience. The adjustable strap system adapts to any gear configuration, ensuring 
-                secure attachment without limiting your mobility.
+                Built to withstand the elements, the MAV is waterproof, dustproof, and impact-resistant. Its sealed housing and 
+                durable construction make it ideal for adventures in any weather—rain, snow, mud, or dust. The MAV gives you 
+                physical control you can count on, whether you're wearing gloves or in motion.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Compatible with hundreds of apps from music streaming to navigation, the MAV gives you seamless control 
-                over your digital experience, no matter where your adventures take you.
+                Weighing just a few ounces, the MAV stays out of the way while staying ready for action. Mount it to your wrist, 
+                bike, pack, or gear with the included strap for comfortable access without adding bulk. With up to 200+ hours of 
+                battery life and magnetic charging, it's built for extended adventures.
               </p>
             </div>
           </div>
