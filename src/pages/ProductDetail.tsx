@@ -166,6 +166,25 @@ const ProductDetail = () => {
         </div>
       </div>
 
+      {/* Product Video Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="aspect-video rounded-lg overflow-hidden bg-muted">
+              <video 
+                className="w-full h-full object-cover" 
+                controls 
+                preload="metadata"
+                poster="/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png"
+              >
+                <source src="/airturn-mav-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-16 bg-muted/20">
         <div className="container mx-auto px-4">
