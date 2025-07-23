@@ -6,9 +6,29 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Shield, Smartphone, Battery, Droplets, ArrowRight, Check, Bluetooth, Watch, Volume2 } from "lucide-react";
 import { useState } from "react";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const { addItem, toggleCart } = useCart();
+  const { toast } = useToast();
+  
+  const handleAddToCart = () => {
+    for (let i = 0; i < quantity; i++) {
+      addItem({
+        id: 'airturn-mav',
+        name: 'AirTurn MAV',
+        price: 99.00,
+        image: '/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png'
+      });
+    }
+    toast({
+      title: "Added to cart!",
+      description: `${quantity} AirTurn MAV${quantity > 1 ? 's' : ''} added to your cart.`,
+    });
+    toggleCart();
+  };
   const productImages = ["/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png", "/lovable-uploads/143eaf88-3a32-405a-bbbd-433bff7598eb.png", "/lovable-uploads/0dbfd9bb-d525-41b0-beb2-b5f0dde70033.png", "/lovable-uploads/a379ad39-fea3-46b5-a91b-dad051e768b5.png"];
   const features = [{
     icon: Watch,
@@ -111,7 +131,12 @@ const ProductDetail = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <Button variant="hero" size="xl" className="w-full text-sky-500">
+                  <Button 
+                    variant="hero" 
+                    size="xl" 
+                    className="w-full text-sky-500"
+                    onClick={handleAddToCart}
+                  >
                     Add to Cart - ${(99.00 * quantity).toFixed(2)}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
