@@ -11,9 +11,13 @@ import { useToast } from "@/hooks/use-toast";
 const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const { addItem, toggleCart } = useCart();
-  const { toast } = useToast();
-  
+  const {
+    addItem,
+    toggleCart
+  } = useCart();
+  const {
+    toast
+  } = useToast();
   const handleAddToCart = () => {
     console.log('handleAddToCart called, quantity:', quantity);
     for (let i = 0; i < quantity; i++) {
@@ -26,7 +30,7 @@ const ProductDetail = () => {
     }
     toast({
       title: "Added to cart!",
-      description: `${quantity} AirTurn MAV${quantity > 1 ? 's' : ''} added to your cart.`,
+      description: `${quantity} AirTurn MAV${quantity > 1 ? 's' : ''} added to your cart.`
     });
     toggleCart();
   };
@@ -124,7 +128,7 @@ const ProductDetail = () => {
                     <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-3 py-1 hover:bg-muted">
                       -
                     </button>
-                    <span className="px-4 py-1 border-x">{quantity}</span>
+                    <span className="px-4 py-1 border-x text-white font-extrabold">{quantity}</span>
                     <button onClick={() => setQuantity(quantity + 1)} className="px-3 py-1 hover:bg-muted">
                       +
                     </button>
@@ -132,12 +136,7 @@ const ProductDetail = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <Button 
-                    variant="hero" 
-                    size="xl" 
-                    className="w-full text-sky-500"
-                    onClick={handleAddToCart}
-                  >
+                  <Button variant="hero" size="xl" className="w-full text-sky-500" onClick={handleAddToCart}>
                     Add to Cart - ${(99.00 * quantity).toFixed(2)}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -171,12 +170,7 @@ const ProductDetail = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="aspect-video rounded-lg overflow-hidden bg-muted">
-              <video 
-                className="w-full h-full object-cover" 
-                controls 
-                preload="metadata"
-                poster="/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png"
-              >
+              <video className="w-full h-full object-cover" controls preload="metadata" poster="/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png">
                 <source src="/airturn-mav-video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
