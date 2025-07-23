@@ -15,6 +15,7 @@ const ProductDetail = () => {
   const { toast } = useToast();
   
   const handleAddToCart = () => {
+    console.log('handleAddToCart called, quantity:', quantity);
     for (let i = 0; i < quantity; i++) {
       addItem({
         id: 'airturn-mav',
