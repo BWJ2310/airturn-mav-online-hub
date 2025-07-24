@@ -170,7 +170,7 @@ const ProductDetail = () => {
         <div className="w-full">
           <div className="aspect-video overflow-hidden bg-muted">
             <video className="w-full h-full object-cover" controls preload="metadata" poster="/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png">
-              <source src="/airturn-mav-video.mp4" type="video/mp4" />
+              <source src="https://cdn.shopify.com/videos/c/o/v/de29e260236746bd9fe943b6707e559f.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
