@@ -140,9 +140,8 @@ const ProductDetail = () => {
                     Add to Cart - ${(99.00 * quantity).toFixed(2)}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
-                  <Button variant="outline" size="xl" className="w-full text-base bg-sky-500 hover:bg-sky-400">
-                    Buy Now
-                  </Button>
+                  <Button variant="outline" size="xl" className="w-full text-base bg-sky-500 hover:bg-sky-400">Instant Check Out
+                </Button>
                 </div>
               </div>
 
