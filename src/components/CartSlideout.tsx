@@ -89,7 +89,7 @@ export const CartSlideout = () => {
           
           {/* Cart Footer */}
           {items.length > 0 && (
-            <div className="border-t pt-6 space-y-4">
+            <div className="border-t pt-6 pb-6 space-y-4">
               <div className="flex justify-between items-center text-lg font-semibold">
                 <span>Total:</span>
                 <span>{formatPrice(getTotalPrice())}</span>

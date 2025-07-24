@@ -13,10 +13,12 @@ export const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <button  className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <a href="/" className="flex items-center gap-2">
             <img src="/lovable-uploads/1cc4e6f9-3928-49d8-bde3-6600dab84be6.png" alt="AirTurn Logo" className="w-8 h-8 object-contain" />
             <span className="text-xl font-bold">AirTurn MAV</span>
-          </Link>
+            </a>
+          </button>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
