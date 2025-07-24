@@ -140,7 +140,7 @@ const ProductDetail = () => {
                     Add to Cart - ${(99.00 * quantity).toFixed(2)}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
-                  <Button variant="outline" size="xl" className="w-full text-base bg-sky-500 hover:bg-sky-400" onClick={() => window.location.href = 'https://www.airturn.com/checkouts/cn/Z2NwLXVzLWNlbnRyYWwxOjAxSlgwQllKN1o0MTVDTTMwWVAzN0FLM1NX'}>Instant Check Out
+                  <Button variant="outline" size="xl" className="w-full text-base bg-sky-500 hover:bg-sky-400" onClick={() => window.open('https://www.airturn.com/checkouts/cn/Z2NwLXVzLWNlbnRyYWwxOjAxSlgwQllKN1o0MTVDTTMwWVAzN0FLM1NX', '_blank')}>Instant Check Out
                 </Button>
                 </div>
               </div>
