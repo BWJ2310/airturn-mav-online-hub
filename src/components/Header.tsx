@@ -23,7 +23,7 @@ export const Header = () => {
             <a href="#specs" className="text-foreground hover:text-primary transition-colors">
               Specs
             </a>
-            <a href="#support" className="text-foreground hover:text-primary transition-colors">
+            <a href="/support" className="text-foreground hover:text-primary transition-colors">
               Support
             </a>
             <a href="/about" className="text-foreground hover:text-primary transition-colors">
@@ -81,7 +81,7 @@ export const Header = () => {
               <a href="#specs" className="px-4 py-2 text-foreground hover:text-primary transition-colors">
                 Specs
               </a>
-              <a href="#support" className="px-4 py-2 text-foreground hover:text-primary transition-colors">
+              <a href="/support" className="px-4 py-2 text-foreground hover:text-primary transition-colors">
                 Support
               </a>
               <a href="/about" className="px-4 py-2 text-foreground hover:text-primary transition-colors">
