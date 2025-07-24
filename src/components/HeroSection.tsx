@@ -1,6 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 export const HeroSection = () => {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
@@ -43,11 +52,18 @@ export const HeroSection = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl" className="group text-sky-500 bg-gray-950 hover:bg-gray-800">
-              Get Your MAV
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            <Button variant="hero" size="xl" className="group text-sky-500 bg-gray-950 hover:bg-gray-800" asChild>
+              <a href="/product">
+                Get Your MAV
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </a>
             </Button>
-            <Button variant="feature" size="xl" className="group bg-gray-950 hover:bg-gray-800">
+            <Button 
+              variant="feature" 
+              size="xl" 
+              className="group bg-gray-950 hover:bg-gray-800"
+              onClick={() => setIsVideoOpen(true)}
+            >
               <Play className="mr-2 h-5 w-5" />
               Watch in Action
             </Button>
@@ -57,5 +73,24 @@ export const HeroSection = () => {
       
       {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
+
+      {/* Video Modal */}
+      <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
+        <DialogContent className="max-w-4xl w-full p-0 bg-black/95 border-0">
+          <DialogHeader className="sr-only">
+            <DialogTitle>MAV Product Video</DialogTitle>
+          </DialogHeader>
+          <div className="relative aspect-video">
+            <video
+              controls
+              autoPlay
+              className="w-full h-full rounded-lg"
+              src="https://cdn.shopify.com/videos/c/o/v/15c553736a2f496bb692b7b9d154cdc5.mp4"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>;
 };

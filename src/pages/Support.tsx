@@ -24,7 +24,7 @@ const Support = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <img 
-                    src="/lovable-uploads/cb138d97-a5af-4ddc-a4ed-5a56afb34ad2.png" 
+                    src="/lovable-uploads/support.png" 
                     alt="AirTurn MAV Button Layout" 
                     className="w-full max-w-md mx-auto rounded-lg shadow-md"
                   />

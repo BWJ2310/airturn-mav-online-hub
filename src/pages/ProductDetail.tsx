@@ -34,7 +34,7 @@ const ProductDetail = () => {
     });
     toggleCart();
   };
-  const productImages = ["/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png", "/lovable-uploads/143eaf88-3a32-405a-bbbd-433bff7598eb.png", "/lovable-uploads/0dbfd9bb-d525-41b0-beb2-b5f0dde70033.png", "/lovable-uploads/a379ad39-fea3-46b5-a91b-dad051e768b5.png"];
+  const productImages = ["https://www.airturn.com/cdn/shop/files/Perspective_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Top_View_LED_On_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Side_View_Square_1_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Bottom_View_no_Charger_Square_670x.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Bottom_View_with_Charger_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Lifestyle_Try_This_1800x1800.jpg?v=1750191761"];
   const features = [{
     icon: Watch,
     title: "Wearable Design",
@@ -94,14 +94,25 @@ const ProductDetail = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             
             {/* Product Images */}
-            <div className="space-y-4">
-              <div className="aspect-square rounded-lg overflow-hidden bg-muted">
-                <img src={productImages[selectedImage]} alt="AirTurn MAV" className="w-full h-full object-cover" />
-              </div>
-              <div className="grid grid-cols-4 gap-2">
-                {productImages.map((image, index) => <button key={index} onClick={() => setSelectedImage(index)} className={`aspect-square rounded-md overflow-hidden border-2 transition-colors ${selectedImage === index ? "border-primary" : "border-border"}`}>
+            <div className="flex gap-4">
+              {/* Thumbnail Navigation */}
+              <div className="flex flex-col max-w-24 gap-2 aspect-square overflow-y-auto pr-2 [&::-webkit-scrollbar]:hidden" style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
+                {productImages.map((image, index) => (
+                  <button 
+                    key={index} 
+                    onClick={() => setSelectedImage(index)} 
+                    className={`w-24 h-24 rounded-md overflow-hidden border-2 transition-colors flex-shrink-0 ${
+                      selectedImage === index ? "border-primary" : "border-border"
+                    }`}
+                  >
                     <img src={image} alt={`MAV view ${index + 1}`} className="w-full h-full object-cover" />
-                  </button>)}
+                  </button>
+                ))}
+              </div>
+              
+              {/* Main Image */}
+              <div className="flex-1 aspect-square rounded-lg overflow-hidden bg-muted">
+                <img src={productImages[selectedImage]} alt="AirTurn MAV" className="w-full h-full  object-cover" />
               </div>
             </div>
 
