@@ -2,21 +2,39 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { HelpCircle } from "lucide-react";
 
 const Support = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4 max-w-4xl">
-          {/* Header Section */}
+      
+      {/* Hero Section */}
+      <section className="pt-20 pb-5 bg-gradient-to-b from-background to-muted/20">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">MAV Quick Start Guide</h1>
-            <p className="text-xl text-muted-foreground">Everything you need to know about your AirTurn MAV</p>
+            <div className="inline-flex items-center gap-2 bg-gradient-card backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-primary/20">
+              <HelpCircle className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium">Support Guide</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-gradient-hero bg-clip-text text-sky-500">
+                MAV
+              </span>{" "}
+              <span className="text-foreground">Quick Start Guide</span>
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Everything you need to know about your AirTurn MAV
+            </p>
           </div>
+        </div>
+      </section>
+
+      <main className="pb-16">
+        <div className="container mx-auto px-4 max-w-4xl">
 
           {/* Product Overview */}
-          <Card className="mb-8">
+          <Card className="mb-8 mt-16">
             <CardHeader>
               <CardTitle className="text-2xl">Product Overview</CardTitle>
             </CardHeader>

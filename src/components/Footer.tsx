@@ -71,13 +71,13 @@ export const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Support</h3>
             <div className="space-y-2">
-              <a href="#setup" className="block text-muted-foreground hover:text-primary transition-colors">
+              <a href="/support" className="block text-muted-foreground hover:text-primary transition-colors">
                 Setup Guide
               </a>
               <a href="#troubleshooting" className="block text-muted-foreground hover:text-primary transition-colors">
                 Troubleshooting
               </a>
-              <a href="#downloads" className="block text-muted-foreground hover:text-primary transition-colors">
+              <a href="/downloads" className="block text-muted-foreground hover:text-primary transition-colors">
                 Downloads
               </a>
               <a href="#contact" className="block text-muted-foreground hover:text-primary transition-colors">
@@ -113,14 +113,14 @@ export const Footer = () => {
             © 2024 AirTurn. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#privacy" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy
             </a>
-            <a href="#terms" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
               Terms of Service
             </a>
-            <a href="#cookies" className="text-muted-foreground hover:text-primary transition-colors">
-              Cookie Policy
+            <a href="/returns" className="text-muted-foreground hover:text-primary transition-colors">
+              Return Policy
             </a>
           </div>
         </div>

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Smartphone, Apple } from "lucide-react";
+import { Smartphone, Apple, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Downloads = () => {
@@ -10,20 +10,32 @@ const Downloads = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="pt-20 pb-16">
+      {/* Hero Section */}
+      <section className="pt-20 pb-5 bg-gradient-to-b from-background to-muted/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-gradient-card backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-primary/20">
+              <Download className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium">App Downloads</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-gradient-hero bg-clip-text text-sky-500">
+                App
+              </span>{" "}
+              <span className="text-foreground">Downloads</span>
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Download the AirTurn MAV app for your mobile device
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <main className="pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            {/* Header Section */}
-            <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Downloads
-              </h1>
-              <p className="text-xl text-muted-foreground">
-                Download the AirTurn MAV app for your mobile device
-              </p>
-            </div>
 
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-8 md:grid-cols-2 mt-16">
               {/* iOS App Download */}
               <Card className="border-primary/20">
                 <CardHeader>
