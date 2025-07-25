@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Download, FileText, Smartphone, Apple } from "lucide-react";
+import { Smartphone, Apple } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Downloads = () => {
@@ -16,14 +16,14 @@ const Downloads = () => {
             {/* Header Section */}
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Downloads & Resources
+                Downloads
               </h1>
               <p className="text-xl text-muted-foreground">
-                Get the AirTurn MAV app and access warranty documents
+                Download the AirTurn MAV app for your mobile device
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="max-w-2xl mx-auto">
               {/* Mobile App Downloads */}
               <Card className="border-primary/20">
                 <CardHeader>
@@ -67,44 +67,6 @@ const Downloads = () => {
                         </svg>
                         Download for Android
                       </a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Warranty Documents */}
-              <Card className="border-primary/20">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <FileText className="h-6 w-6 text-primary" />
-                    Warranty Documents
-                  </CardTitle>
-                  <CardDescription>
-                    Access warranty policy and registration forms
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <Button 
-                      className="w-full justify-start gap-3 h-12" 
-                      variant="outline"
-                      asChild
-                    >
-                      <Link to="/warranty-policy">
-                        <FileText className="h-5 w-5" />
-                        View Warranty Policy
-                      </Link>
-                    </Button>
-                    
-                    <Button 
-                      className="w-full justify-start gap-3 h-12" 
-                      variant="outline"
-                      asChild
-                    >
-                      <Link to="/warranty">
-                        <Download className="h-5 w-5" />
-                        Register Your Device
-                      </Link>
                     </Button>
                   </div>
                 </CardContent>
