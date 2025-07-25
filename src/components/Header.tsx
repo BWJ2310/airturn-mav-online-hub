@@ -22,12 +22,6 @@ export const Header = () => {
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-foreground hover:text-primary transition-colors">
-              Features
-            </a>
-            <a href="#specs" className="text-foreground hover:text-primary transition-colors">
-              Specs
-            </a>
             <a href="/support" className="text-foreground hover:text-primary transition-colors">
               Support
             </a>
@@ -36,6 +30,9 @@ export const Header = () => {
             </a>
             <a href="/downloads" className="text-foreground hover:text-primary transition-colors">
               Downloads
+            </a>
+            <a href="/warranty-policy" className="text-foreground hover:text-primary transition-colors">
+              Warranty
             </a>
           </nav>
           
@@ -69,12 +66,6 @@ export const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && <div className="md:hidden border-t border-primary/20 bg-background/95 backdrop-blur-sm">
             <nav className="flex flex-col py-4 space-y-2">
-              <a href="#features" className="px-4 py-2 text-foreground hover:text-primary transition-colors">
-                Features
-              </a>
-              <a href="#specs" className="px-4 py-2 text-foreground hover:text-primary transition-colors">
-                Specs
-              </a>
               <a href="/support" className="px-4 py-2 text-foreground hover:text-primary transition-colors">
                 Support
               </a>
@@ -83,6 +74,9 @@ export const Header = () => {
               </a>
               <a href="/downloads" className="px-4 py-2 text-foreground hover:text-primary transition-colors">
                 Downloads
+              </a>
+              <a href="/warranty-policy" className="px-4 py-2 text-foreground hover:text-primary transition-colors">
+                Warranty
               </a>
               <div className="px-4 pt-4">
                 <Button variant="hero" size="sm" className="w-full" asChild>
