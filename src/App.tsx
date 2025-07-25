@@ -11,6 +11,9 @@ import About from "./pages/About";
 import Support from "./pages/Support";
 import WarrantyRegistration from "./pages/WarrantyRegistration";
 import WarrantyPolicy from "./pages/WarrantyPolicy";
+import Privacy from "./pages/Privacy";
+import TermsOfService from "./pages/TermsOfService";
+import ReturnPolicy from "./pages/ReturnPolicy";
 import Downloads from "./pages/Downloads";
 import NotFound from "./pages/NotFound";
 
@@ -30,6 +33,9 @@ const App = () => (
             <Route path="/support" element={<Support />} />
             <Route path="/warranty" element={<WarrantyRegistration />} />
             <Route path="/warranty-policy" element={<WarrantyPolicy />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/returns" element={<ReturnPolicy />} />
             <Route path="/downloads" element={<Downloads />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
