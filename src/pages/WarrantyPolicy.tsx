@@ -1,7 +1,9 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Shield, AlertTriangle, Clock, FileText, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const WarrantyPolicy = () => {
   return (
@@ -25,6 +27,13 @@ const WarrantyPolicy = () => {
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Complete terms and conditions for AirTurn product warranties, coverage details, and claim procedures.
             </p>
+            <div className="mt-8">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Link to="/warranty">
+                  Register Your Device
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
