@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Support from "./pages/Support";
 import WarrantyRegistration from "./pages/WarrantyRegistration";
 import WarrantyPolicy from "./pages/WarrantyPolicy";
+import Downloads from "./pages/Downloads";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/support" element={<Support />} />
             <Route path="/warranty" element={<WarrantyRegistration />} />
             <Route path="/warranty-policy" element={<WarrantyPolicy />} />
+            <Route path="/downloads" element={<Downloads />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

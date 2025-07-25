@@ -34,6 +34,9 @@ export const Header = () => {
             <a href="/about" className="text-foreground hover:text-primary transition-colors">
               About
             </a>
+            <a href="/downloads" className="text-foreground hover:text-primary transition-colors">
+              Downloads
+            </a>
           </nav>
           
           {/* Desktop CTA */}
@@ -77,6 +80,9 @@ export const Header = () => {
               </a>
               <a href="/about" className="px-4 py-2 text-foreground hover:text-primary transition-colors">
                 About
+              </a>
+              <a href="/downloads" className="px-4 py-2 text-foreground hover:text-primary transition-colors">
+                Downloads
               </a>
               <div className="px-4 pt-4">
                 <Button variant="hero" size="sm" className="w-full" asChild>
