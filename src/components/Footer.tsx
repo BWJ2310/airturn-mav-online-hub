@@ -1,6 +1,81 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+
 export const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email || !email.includes('@')) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('https://a.klaviyo.com/client/profiles/?company_id=HcUryP', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'revision': '2024-10-15',
+        },
+        body: JSON.stringify({
+          data: {
+            type: "profile",
+            attributes: {
+              email: email,
+              properties: {
+                $exchange_id: "EH3ss2MaQSpUzCP8QHSfQCaviU8mpSd3wxVegoSIJoM.HcUryP",
+                $source: "Newsletter Signup Footer"
+              }
+            },
+            relationships: {
+              form: {
+                data: {
+                  type: "form",
+                  id: "SAExLV"
+                }
+              },
+              "form-version": {
+                data: {
+                  type: "form-version",
+                  id: 10633661
+                }
+              }
+            }
+          }
+        })
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: "You've been subscribed to our newsletter."
+        });
+        setEmail("");
+      } else {
+        throw new Error('Subscription failed');
+      }
+    } catch (error) {
+      toast({
+        title: "Subscription failed",
+        description: "Please try again later or contact support.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return <footer className="bg-gradient-to-b from-background to-muted/20 border-t border-primary/20">
       <div className="container mx-auto px-4 py-16">
         {/* Newsletter Section */}
@@ -10,12 +85,25 @@ export const Footer = () => {
             <p className="text-muted-foreground mb-6">
               Get the latest updates on MAV features, firmware updates, and adventure stories from our community.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input type="email" placeholder="Enter your email" className="flex-1 px-4 py-3 bg-background border border-primary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50" />
-              <Button variant="hero" size="lg" className="bg-slate-50">
-                Subscribe
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input 
+                type="email" 
+                placeholder="Enter your email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={isLoading}
+                className="flex-1 px-4 py-3 bg-background border border-primary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50" 
+              />
+              <Button 
+                type="submit"
+                variant="hero" 
+                size="lg" 
+                className="bg-slate-50"
+                disabled={isLoading}
+              >
+                {isLoading ? "Subscribing..." : "Subscribe"}
               </Button>
-            </div>
+            </form>
           </div>
         </div>
         {/* Main Footer Content */}
@@ -49,10 +137,10 @@ export const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Product</h3>
             <div className="space-y-2">
-              <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors">
+              <a href="/product#features" className="block text-muted-foreground hover:text-primary transition-colors">
                 Features
               </a>
-              <a href="#specs" className="block text-muted-foreground hover:text-primary transition-colors">
+              <a href="/product#specs" className="block text-muted-foreground hover:text-primary transition-colors">
                 Specifications
               </a>
               <a href="#compatibility" className="block text-muted-foreground hover:text-primary transition-colors">

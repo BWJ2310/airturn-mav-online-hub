@@ -78,13 +78,13 @@ const About = () => {
               </div>
               <div className="relative">
                 <Card className="border-primary/20 shadow-card">
-                  <CardContent className="p-6">
-                    <div className="aspect-square bg-gradient-card rounded-lg flex items-center justify-center">
-                      <div className="text-center">
-                        <Award className="w-16 h-16 text-primary mx-auto mb-4" />
-                        <h3 className="text-xl font-semibold mb-2">15+ Years</h3>
-                        <p className="text-muted-foreground">of Innovation</p>
-                      </div>
+                  <CardContent className="p-0">
+                    <div className="bg-gradient-card rounded-lg overflow-hidden">
+                      <img 
+                        src="https://cdn.shopify.com/s/files/1/1109/4160/files/group_photo_web_1024x1024.jpg?v=1678469932"
+                        alt="AirTurn team group photo"
+                        className="w-full h-auto"
+                      />
                     </div>
                   </CardContent>
                 </Card>

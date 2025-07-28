@@ -5,12 +5,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Shield, Smartphone, Battery, Droplets, ArrowRight, Check, Bluetooth, Watch, Volume2 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
+import { useLocation } from "react-router-dom";
 const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const location = useLocation();
   const {
     addItem,
     toggleCart
@@ -18,6 +20,18 @@ const ProductDetail = () => {
   const {
     toast
   } = useToast();
+
+  useEffect(() => {
+    if (location.hash) {
+      const elementId = location.hash.replace('#', '');
+      const element = document.getElementById(elementId);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location]);
   const handleAddToCart = () => {
     console.log('handleAddToCart called, quantity:', quantity);
     for (let i = 0; i < quantity; i++) {
@@ -89,8 +103,8 @@ const ProductDetail = () => {
       <Header />
       
       {/* Main Product Section */}
-      <div className="pt-20 pb-16">
-        <div className="container mx-auto px-4">
+      <div className="pt-0 pb-0 min-h-screen flex items-center">
+        <div className="container mx-auto px-0 ">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             
             {/* Product Images */}
@@ -188,7 +202,7 @@ const ProductDetail = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-muted/20">
+      <section id="features" className="py-16 bg-muted/20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-primary">Built for Adventure</h2>
@@ -210,7 +224,7 @@ const ProductDetail = () => {
       </section>
 
       {/* Specifications */}
-      <section className="py-16">
+      <section id="specs" className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12 text-primary">Technical Specifications</h2>
