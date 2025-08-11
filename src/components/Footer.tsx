@@ -168,6 +168,9 @@ export const Footer = () => {
               <a href="/downloads" className="block text-muted-foreground hover:text-primary transition-colors">
                 Downloads
               </a>
+              <a href="/shipping-policy" className="block text-muted-foreground hover:text-primary transition-colors">
+                Shipping Policy
+              </a>
               <a href="#contact" className="block text-muted-foreground hover:text-primary transition-colors">
                 Contact Us
               </a>
