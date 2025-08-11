@@ -33,47 +33,33 @@ const ProductDetail = () => {
     }
   }, [location]);
 
-  const handleAddToCart = async () => {
+  const handleAddToCart = () => {
     console.log('handleAddToCart called, quantity:', quantity);
     
-    // Use Shopify Buy SDK directly
-    if (window.ShopifyBuy) {
-      try {
-        const client = window.ShopifyBuy.buildClient({
-          domain: 'airturn.myshopify.com',
-          storefrontAccessToken: '6cfd400c787aaa7028d1accb15ae7a32',
-        });
-
-        // Create or get existing cart
-        let checkout = JSON.parse(localStorage.getItem('shopify-cart') || 'null');
-        if (!checkout) {
-          checkout = await client.checkout.create();
-          localStorage.setItem('shopify-cart', JSON.stringify(checkout));
-        }
-
-        // Add items to cart
-        const lineItemsToAdd = [{
-          variantId: 'gid://shopify/ProductVariant/46923339071747',
-          quantity: quantity
-        }];
-
-        checkout = await client.checkout.addLineItems(checkout.id, lineItemsToAdd);
-        localStorage.setItem('shopify-cart', JSON.stringify(checkout));
-
-        toast({
-          title: "Added to cart!",
-          description: `${quantity} AirTurn MAV${quantity > 1 ? 's' : ''} added to your cart.`
-        });
-
-        // Redirect to checkout
-        window.location.href = checkout.webUrl;
-      } catch (error) {
-        console.error('Error adding to cart:', error);
-        toast({
-          title: "Error",
-          description: "Failed to add item to cart. Please try again."
-        });
+    // Find and click the hidden Shopify add to cart button
+    const shopifyButton = document.querySelector('#product-component-1754929219286 button[data-element="product.button"]') as HTMLButtonElement;
+    if (shopifyButton) {
+      // Set quantity if there's a quantity input
+      const quantityInput = document.querySelector('#product-component-1754929219286 input[data-element="product.quantityInput"]') as HTMLInputElement;
+      if (quantityInput) {
+        quantityInput.value = quantity.toString();
+        // Trigger change event to update Shopify's internal state
+        quantityInput.dispatchEvent(new Event('change', { bubbles: true }));
       }
+      
+      // Trigger the Shopify add to cart
+      shopifyButton.click();
+      
+      toast({
+        title: "Added to cart!",
+        description: `${quantity} AirTurn MAV${quantity > 1 ? 's' : ''} added to your cart.`
+      });
+    } else {
+      console.error('Shopify button not found');
+      toast({
+        title: "Error",
+        description: "Unable to add to cart. Please try again."
+      });
     }
   };
   const productImages = ["https://www.airturn.com/cdn/shop/files/Perspective_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Top_View_LED_On_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Side_View_Square_1_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Bottom_View_no_Charger_Square_670x.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Bottom_View_with_Charger_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Lifestyle_Try_This_1800x1800.jpg?v=1750191761"];
@@ -189,6 +175,9 @@ const ProductDetail = () => {
                 </div>
 
                 <div className="space-y-3">
+                  {/* Hidden Shopify Buy Button */}
+                  <div id='product-component-1754929219286' style={{ display: 'none' }}></div>
+                  
                   <Button variant="hero" size="xl" className="w-full text-sky-500" onClick={handleAddToCart}>
                     Add to Cart - ${(99.00 * quantity).toFixed(2)}
                     <ArrowRight className="ml-2 h-5 w-5" />
