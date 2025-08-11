@@ -147,27 +147,11 @@ const ProductDetail = () => {
               <div className="text-3xl font-bold text-primary">$99.00</div>
 
               <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <label className="text-sm font-medium">Quantity:</label>
-                  <div className="flex items-center border rounded-md">
-                    <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-3 py-1 hover:bg-muted">
-                      -
-                    </button>
-                    <span className="px-4 py-1 border-x text-white font-extrabold">{quantity}</span>
-                    <button onClick={() => setQuantity(quantity + 1)} className="px-3 py-1 hover:bg-muted">
-                      +
-                    </button>
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <Button variant="hero" size="xl" className="w-full text-sky-500" onClick={handleAddToCart}>
-                    Add to Cart - ${(99.00 * quantity).toFixed(2)}
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                  <Button variant="outline" size="xl" className="w-full text-base bg-sky-500 hover:bg-sky-400" onClick={() => window.open('https://www.airturn.com/checkouts/cn/hWN10C7hFYJcHJcRPp0BWX6P', '_blank')}>Instant Check Out
+                {/* Shopify Buy Button */}
+                <div id='product-component-1754929219286'></div>
+                
+                <Button variant="outline" size="xl" className="w-full text-base bg-sky-500 hover:bg-sky-400" onClick={() => window.open('https://www.airturn.com/checkouts/cn/hWN10C7hFYJcHJcRPp0BWX6P', '_blank')}>Instant Check Out
                 </Button>
-                </div>
               </div>
 
               <div className="space-y-3 pt-4 border-t">
