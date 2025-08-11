@@ -6,17 +6,13 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Shield, Smartphone, Battery, Droplets, ArrowRight, Check, Bluetooth, Watch, Volume2 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "react-router-dom";
+import { ShopifyBuyButton } from "@/components/ShopifyBuyButton";
 const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const location = useLocation();
-  const {
-    addItem,
-    toggleCart
-  } = useCart();
   const {
     toast
   } = useToast();
@@ -34,19 +30,64 @@ const ProductDetail = () => {
   }, [location]);
   const handleAddToCart = () => {
     console.log('handleAddToCart called, quantity:', quantity);
-    for (let i = 0; i < quantity; i++) {
-      addItem({
-        id: 'airturn-mav',
-        name: 'AirTurn MAV',
-        price: 99.00,
-        image: '/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png'
-      });
+    
+    // Check if Shopify function exists
+    if (typeof (window as any).addToShopifyCart === 'function') {
+      console.log('Calling addToShopifyCart with quantity:', quantity);
+      (window as any).addToShopifyCart(quantity);
+      // Don't show success toast here - let the Shopify function handle it
+    } else {
+      console.log('addToShopifyCart not found, checking for Shopify components...');
+      
+      // Try to add to cart using Shopify UI directly
+      const shopifyUI = (window as any).shopifyUI;
+      const shopifyProduct = (window as any).shopifyProductComponent;
+      
+      if (shopifyUI && shopifyProduct) {
+        console.log('Found Shopify UI and product, attempting direct add to cart');
+        
+        // Try to add directly
+        if (shopifyUI.components && shopifyUI.components.cart && shopifyUI.components.cart.length > 0) {
+          const cart = shopifyUI.components.cart[0];
+          
+          if (shopifyProduct.model && shopifyProduct.model.selectedVariant) {
+            const variant = shopifyProduct.model.selectedVariant;
+            
+            cart.addVariantToCart(variant, quantity).then(() => {
+              console.log('Successfully added to cart!');
+              cart.open();
+              toast({
+                title: "Added to cart!",
+                description: `${quantity} AirTurn MAV${quantity > 1 ? 's' : ''} added to your cart.`
+              });
+            }).catch((err: any) => {
+              console.error('Error adding to cart:', err);
+              toast({
+                title: "Error",
+                description: "Failed to add item to cart. Please try again."
+              });
+            });
+          }
+        }
+      } else {
+        // Shopify not ready yet - retry after a delay
+        console.log('Shopify not ready, retrying in 1 second...');
+        toast({
+          title: "Loading cart...",
+          description: "Please wait a moment and try again."
+        });
+        
+        // Retry after 1 second
+        setTimeout(() => {
+          if (typeof (window as any).addToShopifyCart === 'function') {
+            console.log('Retry successful - calling addToShopifyCart');
+            (window as any).addToShopifyCart(quantity);
+          } else {
+            console.error('Shopify still not ready after retry');
+          }
+        }, 1000);
+      }
     }
-    toast({
-      title: "Added to cart!",
-      description: `${quantity} AirTurn MAV${quantity > 1 ? 's' : ''} added to your cart.`
-    });
-    toggleCart();
   };
   const productImages = ["https://www.airturn.com/cdn/shop/files/Perspective_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Top_View_LED_On_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Side_View_Square_1_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Bottom_View_no_Charger_Square_670x.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Bottom_View_with_Charger_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Lifestyle_Try_This_1800x1800.jpg?v=1750191761"];
   const features = [{
@@ -101,6 +142,9 @@ const ProductDetail = () => {
   }];
   return <div className="min-h-screen bg-background">
       <Header />
+      
+      {/* Hidden Shopify Buy Button for cart integration */}
+      <ShopifyBuyButton quantity={quantity} />
       
       {/* Main Product Section */}
       <div className="pt-0 pb-0 min-h-screen flex items-center">
