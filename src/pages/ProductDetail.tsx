@@ -6,20 +6,20 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Shield, Smartphone, Battery, Droplets, ArrowRight, Check, Bluetooth, Watch, Volume2 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "react-router-dom";
+
+// TypeScript declarations for Shopify Buy SDK
+declare global {
+  interface Window {
+    ShopifyBuy: any;
+  }
+}
 const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const location = useLocation();
-  const {
-    addItem,
-    toggleCart
-  } = useCart();
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
 
   useEffect(() => {
     if (location.hash) {
@@ -32,21 +32,49 @@ const ProductDetail = () => {
       }
     }
   }, [location]);
-  const handleAddToCart = () => {
+
+  const handleAddToCart = async () => {
     console.log('handleAddToCart called, quantity:', quantity);
-    for (let i = 0; i < quantity; i++) {
-      addItem({
-        id: 'airturn-mav',
-        name: 'AirTurn MAV',
-        price: 99.00,
-        image: '/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png'
-      });
+    
+    // Use Shopify Buy SDK directly
+    if (window.ShopifyBuy) {
+      try {
+        const client = window.ShopifyBuy.buildClient({
+          domain: 'airturn.myshopify.com',
+          storefrontAccessToken: '6cfd400c787aaa7028d1accb15ae7a32',
+        });
+
+        // Create or get existing cart
+        let checkout = JSON.parse(localStorage.getItem('shopify-cart') || 'null');
+        if (!checkout) {
+          checkout = await client.checkout.create();
+          localStorage.setItem('shopify-cart', JSON.stringify(checkout));
+        }
+
+        // Add items to cart
+        const lineItemsToAdd = [{
+          variantId: 'gid://shopify/ProductVariant/46923339071747',
+          quantity: quantity
+        }];
+
+        checkout = await client.checkout.addLineItems(checkout.id, lineItemsToAdd);
+        localStorage.setItem('shopify-cart', JSON.stringify(checkout));
+
+        toast({
+          title: "Added to cart!",
+          description: `${quantity} AirTurn MAV${quantity > 1 ? 's' : ''} added to your cart.`
+        });
+
+        // Redirect to checkout
+        window.location.href = checkout.webUrl;
+      } catch (error) {
+        console.error('Error adding to cart:', error);
+        toast({
+          title: "Error",
+          description: "Failed to add item to cart. Please try again."
+        });
+      }
     }
-    toast({
-      title: "Added to cart!",
-      description: `${quantity} AirTurn MAV${quantity > 1 ? 's' : ''} added to your cart.`
-    });
-    toggleCart();
   };
   const productImages = ["https://www.airturn.com/cdn/shop/files/Perspective_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Top_View_LED_On_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Side_View_Square_1_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Bottom_View_no_Charger_Square_670x.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Bottom_View_with_Charger_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Lifestyle_Try_This_1800x1800.jpg?v=1750191761"];
   const features = [{
@@ -147,11 +175,27 @@ const ProductDetail = () => {
               <div className="text-3xl font-bold text-primary">$99.00</div>
 
               <div className="space-y-4">
-                {/* Shopify Buy Button */}
-                <div id='product-component-1754929219286'></div>
-                
-                <Button variant="outline" size="xl" className="w-full text-base bg-sky-500 hover:bg-sky-400" onClick={() => window.open('https://www.airturn.com/checkouts/cn/hWN10C7hFYJcHJcRPp0BWX6P', '_blank')}>Instant Check Out
-                </Button>
+                <div className="flex items-center gap-4">
+                  <label className="text-sm font-medium">Quantity:</label>
+                  <div className="flex items-center border rounded-md">
+                    <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-3 py-1 hover:bg-muted">
+                      -
+                    </button>
+                    <span className="px-4 py-1 border-x text-white font-extrabold">{quantity}</span>
+                    <button onClick={() => setQuantity(quantity + 1)} className="px-3 py-1 hover:bg-muted">
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <Button variant="hero" size="xl" className="w-full text-sky-500" onClick={handleAddToCart}>
+                    Add to Cart - ${(99.00 * quantity).toFixed(2)}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                  <Button variant="outline" size="xl" className="w-full text-base bg-sky-500 hover:bg-sky-400" onClick={() => window.open('https://www.airturn.com/checkouts/cn/hWN10C7hFYJcHJcRPp0BWX6P', '_blank')}>Instant Check Out
+                  </Button>
+                </div>
               </div>
 
               <div className="space-y-3 pt-4 border-t">
