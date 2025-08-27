@@ -118,17 +118,25 @@ export const Footer = () => {
               Adventure Ready. Control Unleashed. The ultimate wearable controller for every outdoor enthusiast.
             </p>
             <div className="flex gap-4">
-              <Button variant="ghost" size="icon" className="hover:bg-primary/20">
-                <Facebook className="h-5 w-5" />
+              <Button variant="ghost" size="icon" className="hover:bg-primary/20" asChild>
+                <a href="https://www.facebook.com/airturn/" target="_blank" rel="noopener noreferrer">
+                  <Facebook className="h-5 w-5" />
+                </a>
               </Button>
-              <Button variant="ghost" size="icon" className="hover:bg-primary/20">
-                <Twitter className="h-5 w-5" />
+              <Button variant="ghost" size="icon" className="hover:bg-primary/20" asChild>
+                <a href="https://x.com/airturn" target="_blank" rel="noopener noreferrer">
+                  <Twitter className="h-5 w-5" />
+                </a>
               </Button>
-              <Button variant="ghost" size="icon" className="hover:bg-primary/20">
-                <Instagram className="h-5 w-5" />
+              <Button variant="ghost" size="icon" className="hover:bg-primary/20" asChild>
+                <a href="https://www.instagram.com/airturnofficial/?hl=en" target="_blank" rel="noopener noreferrer">
+                  <Instagram className="h-5 w-5" />
+                </a>
               </Button>
-              <Button variant="ghost" size="icon" className="hover:bg-primary/20">
-                <Youtube className="h-5 w-5" />
+              <Button variant="ghost" size="icon" className="hover:bg-primary/20" asChild>
+                <a href="https://www.youtube.com/c/AirTurnVideo" target="_blank" rel="noopener noreferrer">
+                  <Youtube className="h-5 w-5" />
+                </a>
               </Button>
             </div>
           </div>
