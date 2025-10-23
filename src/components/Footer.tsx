@@ -148,9 +148,6 @@ export const Footer = () => {
               <a href="/product#features" className="block text-muted-foreground hover:text-primary transition-colors">
                 Features
               </a>
-              <a href="/product#specs" className="block text-muted-foreground hover:text-primary transition-colors">
-                Specifications
-              </a>
               <a href="#compatibility" className="block text-muted-foreground hover:text-primary transition-colors">
                 Compatibility
               </a>
