@@ -31,7 +31,7 @@ const Support = () => {
       </section>
 
       <main className="pb-16">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="container mx-auto px-4 max-w-6xl">
 
           {/* Product Overview */}
           <Card className="mb-8 mt-16">
