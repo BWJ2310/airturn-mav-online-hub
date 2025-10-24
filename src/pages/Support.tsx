@@ -44,7 +44,7 @@ const Support = () => {
                   <img 
                     src="/lovable-uploads/support.png" 
                     alt="AirTurn MAV Button Layout" 
-                    className="w-full max-w-md mx-auto rounded-lg shadow-md"
+                    className="w-full max-w-md mx-auto rounded-lg"
                   />
                 </div>
                 <div className="space-y-6">
