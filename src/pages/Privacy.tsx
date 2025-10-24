@@ -45,7 +45,7 @@ const Privacy = () => {
                 </CardTitle>
                 <p className="text-white mt-2">How we collect and use your personal information</p>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="grid md:grid-cols-2 gap-6">
                 <div className="bg-blue-900/20 p-6 rounded-lg border border-blue-700/30">
                   <h3 className="font-bold text-lg mb-4 text-white flex items-center gap-2">
                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
